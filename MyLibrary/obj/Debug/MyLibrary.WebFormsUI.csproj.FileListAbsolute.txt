@@ -1,0 +1,10 @@
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\bin\Debug\MyLibrary.exe.config
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\bin\Debug\MyLibrary.exe
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\bin\Debug\MyLibrary.pdb
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.WebFormsUI.csprojAssemblyReference.cache
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.MainForm.resources
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.Properties.Resources.resources
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.WebFormsUI.csproj.GenerateResource.cache
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.WebFormsUI.csproj.CoreCompileInputs.cache
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.exe
+C:\Users\EmrahTuran\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.pdb
