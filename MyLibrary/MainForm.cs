@@ -140,7 +140,7 @@ namespace MyLibrary
                 txtBookISBN.Text = book[0].ISBN;
                 txtBookPublishedYear.Text = Convert.ToString(book[0].PublishedYear);
                 cmbBookAuthor.SelectedValue = book[0].AuthorId;
-                cmbBookCategory.SelectedValue= book[0].CategoryId;
+                cmbBookCategory.SelectedValue = book[0].CategoryId;
                 cmbBookPublisher.SelectedValue = book[0].PublisherId;
                 btnBookSave.Text = "Save";
                 btnBookDelete.Enabled = true;
