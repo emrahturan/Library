@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E333247D-9A92-425C-AE82-D58BB5D221B1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>MyLibrary.DataAccess</RootNamespace>
     <AssemblyName>MyLibrary.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -32,8 +32,41 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAuthorDal.cs" />
+    <Compile Include="Abstract\IBookDal.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IEntityRepository.cs" />
+    <Compile Include="Abstract\IPublisherDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAuthorDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfBookDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfEntityRepositoryBase.cs" />
+    <Compile Include="Concrete\EntityFramework\EfPublisherDal.cs" />
+    <Compile Include="Concrete\EntityFramework\LibraryContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLibrary.Entities\MyLibrary.Entities.csproj">
+      <Project>{7B7D6F17-9B57-4613-A0DE-E985042E45E5}</Project>
+      <Name>MyLibrary.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
