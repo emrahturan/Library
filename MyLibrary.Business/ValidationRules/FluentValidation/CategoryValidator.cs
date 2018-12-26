@@ -3,12 +3,13 @@ using MyLibrary.Entities.Concrete;
 
 namespace MyLibrary.Business.ValidationRules.FluentValidation
 {
-    public class CategoryValidator:AbstractValidator<Category>
+    public class CategoryValidator : AbstractValidator<Category>
     {
         public CategoryValidator()
         {
-            RuleFor(p => p.Name).NotEmpty();
-            RuleFor(p => p.Name).MaximumLength(30);
+            RuleFor(p => p.Name)
+                .NotEmpty()
+                .MaximumLength(30);
         }
     }
 }

@@ -21,6 +21,11 @@ namespace MyLibrary.Business.Concrete
             return _bookDal.GetAll();
         }
 
+        public List<Book> GetBookById(int id)
+        {
+            return _bookDal.GetAll(p => p.Id == id);
+        }
+
         public void Add(Book book)
         {
             ValidationTool.Validate(new BookValidator(), book);

@@ -18,6 +18,7 @@ namespace MyLibrary
         public MainForm()
         {
             InitializeComponent();
+
             _authorService = new AuthorManager(new EfAuthorDal());
             _categoryService = new CategoryManager(new EfCategoryDal());
             _publisherService = new PublisherManager(new EfPublisherDal());
@@ -29,10 +30,9 @@ namespace MyLibrary
             FillAuthorComboBox();
             FillCategoryComboBox();
             FillPublisherComboBox();
+            FillBookComboBox();
             FillBookGridView();
         }
-
-        
 
         private void FillAuthorComboBox()
         {
@@ -88,6 +88,17 @@ namespace MyLibrary
 
             cmbBookPublisher.Enabled = cmbBookPublisher.Items.Count != 0;
         }
+        private void FillBookComboBox()
+        {
+            var bookList = new List<Book>();
+            var addChoose = new Book() { Id = -1, Name = "Add New Book" };
+
+            cmbBooks.DisplayMember = "Name";
+            cmbBooks.ValueMember = "Id";
+            bookList.Add(addChoose);
+            bookList.AddRange(_bookService.GetAll());
+            cmbBooks.DataSource = bookList;
+        }
         private void FillBookGridView()
         {
             grdBook.DataSource = _bookService.GetAll();
@@ -117,40 +128,84 @@ namespace MyLibrary
             btnPublisherSave.Text = id < 0 ? "Add" : "Save";
             btnPublisherDelete.Enabled = id >= 0;
         }
+        private void cmbBooks_SelectedIndexChanged(object sender, EventArgs e) //Kontrol
+        {
+            var id = ((Book)cmbBooks.SelectedItem).Id;
+
+            if (id >= 0)
+            {
+                var book = _bookService.GetBookById(id);
+
+                txtBookName.Text = book[0].Name;
+                txtBookISBN.Text = book[0].ISBN;
+                txtBookPublishedYear.Text = Convert.ToString(book[0].PublishedYear);
+                cmbBookAuthor.SelectedValue = book[0].AuthorId;
+                cmbBookCategory.SelectedValue= book[0].CategoryId;
+                cmbBookPublisher.SelectedValue = book[0].PublisherId;
+                btnBookSave.Text = "Save";
+                btnBookDelete.Enabled = true;
+            }
+            else
+            {
+                txtBookName.Text = "";
+                txtBookISBN.Text = "";
+                txtBookPublishedYear.Text = "";
+                cmbBookAuthor.SelectedIndex = 0;
+                cmbBookCategory.SelectedIndex = 0;
+                cmbBookPublisher.SelectedIndex = 0;
+                btnBookSave.Text = "Add";
+                btnBookDelete.Enabled = false;
+            }
+
+        }
 
         private void btnAuthorSave_Click(object sender, EventArgs e)
         {
-            var id = ((Author)cmbAuthors.SelectedItem).Id;
-
-            if (id < 0)
+            try
             {
-                _authorService.Add(new Author() { FullName = txtFirstName.Text });
-                MessageBox.Show(@"Author added!");
-            }
-            else
-            {
-                _authorService.Update(new Author() { Id = id, FullName = txtFirstName.Text });
-                MessageBox.Show(@"Author updated!");
-            }
+                var id = ((Author)cmbAuthors.SelectedItem).Id;
 
-            FillAuthorComboBox();
+                if (id < 0)
+                {
+                    _authorService.Add(new Author() { FullName = txtFirstName.Text });
+                    MessageBox.Show(@"Author added!");
+                }
+                else
+                {
+                    _authorService.Update(new Author() { Id = id, FullName = txtFirstName.Text });
+                    MessageBox.Show(@"Author updated!");
+                }
+
+                FillAuthorComboBox();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
         private void btnCategorySave_Click(object sender, EventArgs e)
         {
-            var id = ((Category)cmbCategories.SelectedItem).Id;
-
-            if (id < 0)
+            try
             {
-                _categoryService.Add(new Category() { Name = txtCategory.Text });
-                MessageBox.Show(@"Category added!");
-            }
-            else
-            {
-                _categoryService.Update(new Category() { Id = id, Name = txtCategory.Text });
-                MessageBox.Show(@"Category updated!");
-            }
+                var id = ((Category)cmbCategories.SelectedItem).Id;
 
-            FillCategoryComboBox();
+                if (id < 0)
+                {
+                    _categoryService.Add(new Category() { Name = txtCategory.Text });
+                    MessageBox.Show(@"Category added!");
+                }
+                else
+                {
+                    _categoryService.Update(new Category() { Id = id, Name = txtCategory.Text });
+                    MessageBox.Show(@"Category updated!");
+                }
+
+                FillCategoryComboBox();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
         private void btnPublisherSave_Click(object sender, EventArgs e)
         {
@@ -175,22 +230,77 @@ namespace MyLibrary
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+        private void btnBookSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = ((Book)cmbBooks.SelectedItem).Id;
 
+                if (id < 0)
+                {
+                    _bookService.Add(new Book()
+                    {
+                        Name = txtBookName.Text,
+                        ISBN = txtBookISBN.Text,
+                        PublishedYear = Convert.ToInt16(txtBookPublishedYear.Text),
+                        AuthorId = ((Author)cmbBookAuthor.SelectedItem).Id,
+                        CategoryId = ((Category)cmbBookCategory.SelectedItem).Id,
+                        PublisherId = ((Publisher)cmbBookPublisher.SelectedItem).Id
+                    });
+                    MessageBox.Show(@"Book added!");
+                }
+                else
+                {
+                    _bookService.Update(new Book()
+                    {
+                        Id = ((Book)cmbBooks.SelectedItem).Id,
+                        Name = txtBookName.Text,
+                        ISBN = txtBookISBN.Text,
+                        PublishedYear = Convert.ToInt16(txtBookPublishedYear.Text),
+                        AuthorId = ((Author)cmbBookAuthor.SelectedItem).Id,
+                        CategoryId = ((Category)cmbBookCategory.SelectedItem).Id,
+                        PublisherId = ((Publisher)cmbBookPublisher.SelectedItem).Id
+                    });
+                    MessageBox.Show(@"Book updated!");
+                }
+
+                FillBookComboBox();
+                FillBookGridView();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void btnAuthorDelete_Click(object sender, EventArgs e)
         {
-            _authorService.Delete(new Author() { Id = ((Author)cmbAuthors.SelectedItem).Id });
+            try
+            {
+                _authorService.Delete(new Author() { Id = ((Author)cmbAuthors.SelectedItem).Id });
 
-            MessageBox.Show(@"Author deleted!");
-            FillAuthorComboBox();
+                MessageBox.Show(@"Author deleted!");
+                FillAuthorComboBox();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
         private void btnCategoryDelete_Click(object sender, EventArgs e)
         {
-            _categoryService.Delete(new Category() { Id = ((Category)cmbCategories.SelectedItem).Id });
+            try
+            {
+                _categoryService.Delete(new Category() { Id = ((Category)cmbCategories.SelectedItem).Id });
 
-            MessageBox.Show(@"Category deleted!");
-            FillCategoryComboBox();
+                MessageBox.Show(@"Category deleted!");
+                FillCategoryComboBox();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
         private void btnPublisherDelete_Click(object sender, EventArgs e)
         {
@@ -200,6 +310,21 @@ namespace MyLibrary
 
                 MessageBox.Show(@"Publisher deleted!");
                 FillPublisherComboBox();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+        private void btnBookDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _bookService.Delete(new Book() { Id = ((Book)cmbBooks.SelectedItem).Id });
+
+                MessageBox.Show(@"Book deleted!");
+                FillBookComboBox();
+                FillBookGridView();
             }
             catch (Exception exception)
             {

@@ -63,6 +63,7 @@
             this.txtBookName = new System.Windows.Forms.TextBox();
             this.grdBook = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbBooks = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -250,6 +251,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cmbBooks);
             this.groupBox4.Controls.Add(this.btnBookDelete);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.btnBookSave);
@@ -266,24 +268,25 @@
             this.groupBox4.Controls.Add(this.txtBookName);
             this.groupBox4.Location = new System.Drawing.Point(12, 150);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(762, 134);
+            this.groupBox4.Size = new System.Drawing.Size(762, 187);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Book Operations";
             // 
             // btnBookDelete
             // 
-            this.btnBookDelete.Location = new System.Drawing.Point(578, 98);
+            this.btnBookDelete.Location = new System.Drawing.Point(578, 137);
             this.btnBookDelete.Name = "btnBookDelete";
             this.btnBookDelete.Size = new System.Drawing.Size(88, 23);
             this.btnBookDelete.TabIndex = 2;
             this.btnBookDelete.Text = "Delete";
             this.btnBookDelete.UseVisualStyleBackColor = true;
+            this.btnBookDelete.Click += new System.EventHandler(this.btnBookDelete_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(518, 63);
+            this.label9.Location = new System.Drawing.Point(518, 102);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 10;
@@ -291,17 +294,18 @@
             // 
             // btnBookSave
             // 
-            this.btnBookSave.Location = new System.Drawing.Point(668, 98);
+            this.btnBookSave.Location = new System.Drawing.Point(668, 137);
             this.btnBookSave.Name = "btnBookSave";
             this.btnBookSave.Size = new System.Drawing.Size(88, 23);
             this.btnBookSave.TabIndex = 3;
             this.btnBookSave.Text = "Save";
             this.btnBookSave.UseVisualStyleBackColor = true;
+            this.btnBookSave.Click += new System.EventHandler(this.btnBookSave_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(262, 63);
+            this.label8.Location = new System.Drawing.Point(262, 102);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 7;
@@ -310,7 +314,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 63);
+            this.label7.Location = new System.Drawing.Point(6, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 9;
@@ -319,7 +323,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(518, 24);
+            this.label6.Location = new System.Drawing.Point(518, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 8;
@@ -328,7 +332,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(262, 24);
+            this.label5.Location = new System.Drawing.Point(262, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 7;
@@ -337,7 +341,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Location = new System.Drawing.Point(6, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 6;
@@ -345,7 +349,8 @@
             // 
             // txtBookPublishedYear
             // 
-            this.txtBookPublishedYear.Location = new System.Drawing.Point(578, 21);
+            this.txtBookPublishedYear.Location = new System.Drawing.Point(578, 60);
+            this.txtBookPublishedYear.MaxLength = 4;
             this.txtBookPublishedYear.Name = "txtBookPublishedYear";
             this.txtBookPublishedYear.Size = new System.Drawing.Size(178, 20);
             this.txtBookPublishedYear.TabIndex = 5;
@@ -353,7 +358,7 @@
             // cmbBookPublisher
             // 
             this.cmbBookPublisher.FormattingEnabled = true;
-            this.cmbBookPublisher.Location = new System.Drawing.Point(578, 60);
+            this.cmbBookPublisher.Location = new System.Drawing.Point(578, 99);
             this.cmbBookPublisher.Name = "cmbBookPublisher";
             this.cmbBookPublisher.Size = new System.Drawing.Size(178, 21);
             this.cmbBookPublisher.TabIndex = 4;
@@ -361,7 +366,7 @@
             // cmbBookCategory
             // 
             this.cmbBookCategory.FormattingEnabled = true;
-            this.cmbBookCategory.Location = new System.Drawing.Point(322, 60);
+            this.cmbBookCategory.Location = new System.Drawing.Point(322, 99);
             this.cmbBookCategory.Name = "cmbBookCategory";
             this.cmbBookCategory.Size = new System.Drawing.Size(178, 21);
             this.cmbBookCategory.TabIndex = 3;
@@ -369,21 +374,22 @@
             // cmbBookAuthor
             // 
             this.cmbBookAuthor.FormattingEnabled = true;
-            this.cmbBookAuthor.Location = new System.Drawing.Point(66, 60);
+            this.cmbBookAuthor.Location = new System.Drawing.Point(66, 99);
             this.cmbBookAuthor.Name = "cmbBookAuthor";
             this.cmbBookAuthor.Size = new System.Drawing.Size(178, 21);
             this.cmbBookAuthor.TabIndex = 2;
             // 
             // txtBookISBN
             // 
-            this.txtBookISBN.Location = new System.Drawing.Point(322, 21);
+            this.txtBookISBN.Location = new System.Drawing.Point(322, 60);
+            this.txtBookISBN.MaxLength = 14;
             this.txtBookISBN.Name = "txtBookISBN";
             this.txtBookISBN.Size = new System.Drawing.Size(178, 20);
             this.txtBookISBN.TabIndex = 1;
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(66, 21);
+            this.txtBookName.Location = new System.Drawing.Point(66, 60);
             this.txtBookName.Name = "txtBookName";
             this.txtBookName.Size = new System.Drawing.Size(178, 20);
             this.txtBookName.TabIndex = 0;
@@ -399,25 +405,34 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.grdBook);
-            this.groupBox5.Location = new System.Drawing.Point(12, 290);
+            this.groupBox5.Location = new System.Drawing.Point(12, 343);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(762, 244);
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Book List";
             // 
+            // cmbBooks
+            // 
+            this.cmbBooks.FormattingEnabled = true;
+            this.cmbBooks.Location = new System.Drawing.Point(9, 21);
+            this.cmbBooks.Name = "cmbBooks";
+            this.cmbBooks.Size = new System.Drawing.Size(747, 21);
+            this.cmbBooks.TabIndex = 9;
+            this.cmbBooks.SelectedIndexChanged += new System.EventHandler(this.cmbBooks_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 546);
+            this.ClientSize = new System.Drawing.Size(788, 597);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Simple Library";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -470,6 +485,7 @@
         private System.Windows.Forms.Button btnBookSave;
         private System.Windows.Forms.DataGridView grdBook;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cmbBooks;
     }
 }
 

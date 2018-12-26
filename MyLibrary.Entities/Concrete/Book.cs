@@ -1,4 +1,5 @@
-﻿using System.Security.AccessControl;
+﻿using System;
+using System.Security.AccessControl;
 using MyLibrary.Entities.Abstract;
 
 namespace MyLibrary.Entities.Concrete
@@ -11,6 +12,6 @@ namespace MyLibrary.Entities.Concrete
         public int AuthorId { get; set; }
         public int CategoryId { get; set; }
         public int PublisherId { get; set; }
-        public int PublishedYear { get; set; }
+        public Int16 PublishedYear { get; set; }
     }
 }

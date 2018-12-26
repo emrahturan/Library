@@ -7,8 +7,9 @@ namespace MyLibrary.Business.ValidationRules.FluentValidation
     {
         public AuthorValidator()
         {
-            RuleFor(p => p.FullName).NotEmpty();
-            RuleFor(p => p.FullName).MaximumLength(50);
+            RuleFor(p => p.FullName)
+                .NotEmpty()
+                .MaximumLength(50);
         }
     }
 }
