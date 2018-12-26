@@ -1,0 +1,6 @@
+C:\Users\EmrahTuran\source\repos\SimpleLibrary\MyLibrary.Entities\bin\Debug\MyLibrary.Entities.pdb
+C:\Users\EmrahTuran\source\repos\SimpleLibrary\MyLibrary.Entities\obj\Debug\MyLibrary.Entities.csproj.CoreCompileInputs.cache
+C:\Users\EmrahTuran\source\repos\SimpleLibrary\MyLibrary.Entities\obj\Debug\MyLibrary.Entities.pdb
+C:\Users\EmrahTuran\source\repos\SimpleLibrary\MyLibrary.Entities\bin\Debug\MyLibrary.Entities.dll.config
+C:\Users\EmrahTuran\source\repos\SimpleLibrary\MyLibrary.Entities\bin\Debug\MyLibrary.Entities.dll
+C:\Users\EmrahTuran\source\repos\SimpleLibrary\MyLibrary.Entities\obj\Debug\MyLibrary.Entities.dll
