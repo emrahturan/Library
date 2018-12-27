@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[Books] ******/
+/****** Object:  Table [dbo].[Categories] ******/
 USE [Library]
 GO
 

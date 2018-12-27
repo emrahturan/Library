@@ -127,7 +127,7 @@ namespace MyLibrary
             btnPublisherSave.Text = id < 0 ? "Add" : "Save";
             btnPublisherDelete.Enabled = id >= 0;
         }
-        private void cmbBooks_SelectedIndexChanged(object sender, EventArgs e) //Kontrol
+        private void cmbBooks_SelectedIndexChanged(object sender, EventArgs e) 
         {
             var id = ((Book)cmbBooks.SelectedItem).Id;
 
