@@ -1,10 +1,9 @@
-﻿using MyLibrary.Business.Concrete;
-using MyLibrary.DataAccess.Concrete.EntityFramework;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using MyLibrary.Business.Abstract;
 using MyLibrary.Entities.Concrete;
 using System.Collections.Generic;
+using MyLibrary.Business.DependencyResolvers.Ninject;
 
 namespace MyLibrary
 {
@@ -19,10 +18,10 @@ namespace MyLibrary
         {
             InitializeComponent();
 
-            _authorService = new AuthorManager(new EfAuthorDal());
-            _categoryService = new CategoryManager(new EfCategoryDal());
-            _publisherService = new PublisherManager(new EfPublisherDal());
-            _bookService = new BookManager(new EfBookDal());
+            _authorService = InstanceFactory.GetInstance<IAuthorService>();
+            _categoryService = InstanceFactory.GetInstance<ICategoryService>();
+            _publisherService = InstanceFactory.GetInstance<IPublisherService>();
+            _bookService = InstanceFactory.GetInstance<IBookService>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -137,7 +136,7 @@ namespace MyLibrary
                 var book = _bookService.GetBookById(id);
 
                 txtBookName.Text = book[0].Name;
-                txtBookISBN.Text = book[0].ISBN;
+                txtBookISBN.Text = book[0].Isbn;
                 txtBookPublishedYear.Text = Convert.ToString(book[0].PublishedYear);
                 cmbBookAuthor.SelectedValue = book[0].AuthorId;
                 cmbBookCategory.SelectedValue = book[0].CategoryId;
@@ -242,7 +241,7 @@ namespace MyLibrary
                     _bookService.Add(new Book()
                     {
                         Name = txtBookName.Text,
-                        ISBN = txtBookISBN.Text,
+                        Isbn = txtBookISBN.Text,
                         PublishedYear = Convert.ToInt16(txtBookPublishedYear.Text),
                         AuthorId = ((Author)cmbBookAuthor.SelectedItem).Id,
                         CategoryId = ((Category)cmbBookCategory.SelectedItem).Id,
@@ -256,7 +255,7 @@ namespace MyLibrary
                     {
                         Id = ((Book)cmbBooks.SelectedItem).Id,
                         Name = txtBookName.Text,
-                        ISBN = txtBookISBN.Text,
+                        Isbn = txtBookISBN.Text,
                         PublishedYear = Convert.ToInt16(txtBookPublishedYear.Text),
                         AuthorId = ((Author)cmbBookAuthor.SelectedItem).Id,
                         CategoryId = ((Category)cmbBookCategory.SelectedItem).Id,

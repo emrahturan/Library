@@ -10,7 +10,7 @@ namespace MyLibrary.Business.ValidationRules.FluentValidation
         {
             RuleFor(p => p.AuthorId).NotNull();
             RuleFor(p => p.CategoryId).NotNull();
-            RuleFor(p => p.ISBN)
+            RuleFor(p => p.Isbn)
                 .NotNull()
                 .Matches(@"^\d{13}$");
             RuleFor(p => p.Name)

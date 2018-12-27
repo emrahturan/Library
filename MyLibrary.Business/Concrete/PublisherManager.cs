@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FluentValidation;
 using MyLibrary.Business.Abstract;
 using MyLibrary.Business.Utilities;
 using MyLibrary.Business.ValidationRules.FluentValidation;
