@@ -22,7 +22,7 @@ namespace MyLibrary.Business.ValidationRules.FluentValidation
                 .LessThan((short)(DateTime.Now.Year + 1));
             RuleFor(p => p.PublisherId).NotNull();
         }
-
+         
     }
 }
 
