@@ -4,7 +4,7 @@ namespace MyLibrary.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers
 {
     public class DatabaseLogger : LoggerService
     {
-        public DatabaseLogger(ILog log) : base(LogManager.GetLogger("DatabaseLogger"))
+        public DatabaseLogger() : base(LogManager.GetLogger("DatabaseLogger"))
         {
         }
     }

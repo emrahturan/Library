@@ -9,7 +9,7 @@ namespace MyLibrary.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts
     {
         public override void ActivateOptions()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void Format(TextWriter writer, LoggingEvent loggingEvent)

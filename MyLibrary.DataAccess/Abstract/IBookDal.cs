@@ -1,4 +1,5 @@
-﻿using MyLibrary.Entities.Concrete;
+﻿using MyLibrary.Core.DataAccess;
+using MyLibrary.Entities.Concrete;
 
 namespace MyLibrary.DataAccess.Abstract
 {

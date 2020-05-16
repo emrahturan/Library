@@ -1,5 +1,5 @@
 ﻿using MyLibrary.Business.Abstract;
-using MyLibrary.Business.Concrete;
+using MyLibrary.Business.Concrete.Managers;
 using MyLibrary.DataAccess.Abstract;
 using MyLibrary.DataAccess.Concrete.EntityFramework;
 using Ninject.Modules;

@@ -54,7 +54,7 @@ namespace MyLibrary.Core.Aspects.PostSharp.LogAspects
                     MethodName = args.Method.Name,
                     Parameters = logParameters
                 };
-
+                
                 _loggerService.Info(logDetail);
             }
             catch

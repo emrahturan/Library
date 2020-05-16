@@ -15,5 +15,6 @@ namespace MyLibrary.Core.CrossCuttingConcerns.Logging.Log4Net
 
         public string UserName => _loggingEvent.UserName;
         public object MessageObject => _loggingEvent.MessageObject;
+        public DateTime TimeStamp => _loggingEvent.TimeStampUtc;
     }
 }

@@ -6,7 +6,7 @@ namespace MyLibrary.Business.DependencyResolvers.Ninject
     {
         public static T GetInstance<T>()
         {
-            var kernel = new StandardKernel(new BusinessModule());
+            var kernel = new StandardKernel(new BusinessModule(),new ValidationModule());
             return kernel.Get<T>();
         }
     }

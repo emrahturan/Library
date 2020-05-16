@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbPublishers = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbBooks = new System.Windows.Forms.ComboBox();
             this.btnBookDelete = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnBookSave = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@
             this.txtBookName = new System.Windows.Forms.TextBox();
             this.grdBook = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.cmbBooks = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,7 +101,7 @@
             this.btnAuthorSave.Location = new System.Drawing.Point(159, 91);
             this.btnAuthorSave.Name = "btnAuthorSave";
             this.btnAuthorSave.Size = new System.Drawing.Size(85, 23);
-            this.btnAuthorSave.TabIndex = 1;
+            this.btnAuthorSave.TabIndex = 2;
             this.btnAuthorSave.Text = "Save";
             this.btnAuthorSave.UseVisualStyleBackColor = true;
             this.btnAuthorSave.Click += new System.EventHandler(this.btnAuthorSave_Click);
@@ -160,7 +160,7 @@
             this.txtCategory.Location = new System.Drawing.Point(72, 57);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(172, 20);
-            this.txtCategory.TabIndex = 2;
+            this.txtCategory.TabIndex = 3;
             // 
             // btnCategorySave
             // 
@@ -219,14 +219,14 @@
             this.txtPublisher.Location = new System.Drawing.Point(72, 57);
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(172, 20);
-            this.txtPublisher.TabIndex = 2;
+            this.txtPublisher.TabIndex = 5;
             // 
             // btnPublisherSave
             // 
             this.btnPublisherSave.Location = new System.Drawing.Point(159, 91);
             this.btnPublisherSave.Name = "btnPublisherSave";
             this.btnPublisherSave.Size = new System.Drawing.Size(85, 23);
-            this.btnPublisherSave.TabIndex = 4;
+            this.btnPublisherSave.TabIndex = 6;
             this.btnPublisherSave.Text = "Save";
             this.btnPublisherSave.UseVisualStyleBackColor = true;
             this.btnPublisherSave.Click += new System.EventHandler(this.btnPublisherSave_Click);
@@ -273,12 +273,21 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Book Operations";
             // 
+            // cmbBooks
+            // 
+            this.cmbBooks.FormattingEnabled = true;
+            this.cmbBooks.Location = new System.Drawing.Point(9, 21);
+            this.cmbBooks.Name = "cmbBooks";
+            this.cmbBooks.Size = new System.Drawing.Size(747, 21);
+            this.cmbBooks.TabIndex = 9;
+            this.cmbBooks.SelectedIndexChanged += new System.EventHandler(this.cmbBooks_SelectedIndexChanged);
+            // 
             // btnBookDelete
             // 
             this.btnBookDelete.Location = new System.Drawing.Point(578, 137);
             this.btnBookDelete.Name = "btnBookDelete";
             this.btnBookDelete.Size = new System.Drawing.Size(88, 23);
-            this.btnBookDelete.TabIndex = 2;
+            this.btnBookDelete.TabIndex = 27;
             this.btnBookDelete.Text = "Delete";
             this.btnBookDelete.UseVisualStyleBackColor = true;
             this.btnBookDelete.Click += new System.EventHandler(this.btnBookDelete_Click);
@@ -297,7 +306,7 @@
             this.btnBookSave.Location = new System.Drawing.Point(668, 137);
             this.btnBookSave.Name = "btnBookSave";
             this.btnBookSave.Size = new System.Drawing.Size(88, 23);
-            this.btnBookSave.TabIndex = 3;
+            this.btnBookSave.TabIndex = 26;
             this.btnBookSave.Text = "Save";
             this.btnBookSave.UseVisualStyleBackColor = true;
             this.btnBookSave.Click += new System.EventHandler(this.btnBookSave_Click);
@@ -353,7 +362,7 @@
             this.txtBookPublishedYear.MaxLength = 4;
             this.txtBookPublishedYear.Name = "txtBookPublishedYear";
             this.txtBookPublishedYear.Size = new System.Drawing.Size(178, 20);
-            this.txtBookPublishedYear.TabIndex = 5;
+            this.txtBookPublishedYear.TabIndex = 22;
             // 
             // cmbBookPublisher
             // 
@@ -361,7 +370,7 @@
             this.cmbBookPublisher.Location = new System.Drawing.Point(578, 99);
             this.cmbBookPublisher.Name = "cmbBookPublisher";
             this.cmbBookPublisher.Size = new System.Drawing.Size(178, 21);
-            this.cmbBookPublisher.TabIndex = 4;
+            this.cmbBookPublisher.TabIndex = 25;
             // 
             // cmbBookCategory
             // 
@@ -369,7 +378,7 @@
             this.cmbBookCategory.Location = new System.Drawing.Point(322, 99);
             this.cmbBookCategory.Name = "cmbBookCategory";
             this.cmbBookCategory.Size = new System.Drawing.Size(178, 21);
-            this.cmbBookCategory.TabIndex = 3;
+            this.cmbBookCategory.TabIndex = 24;
             // 
             // cmbBookAuthor
             // 
@@ -377,22 +386,22 @@
             this.cmbBookAuthor.Location = new System.Drawing.Point(66, 99);
             this.cmbBookAuthor.Name = "cmbBookAuthor";
             this.cmbBookAuthor.Size = new System.Drawing.Size(178, 21);
-            this.cmbBookAuthor.TabIndex = 2;
+            this.cmbBookAuthor.TabIndex = 23;
             // 
             // txtBookISBN
             // 
             this.txtBookISBN.Location = new System.Drawing.Point(322, 60);
-            this.txtBookISBN.MaxLength = 14;
+            this.txtBookISBN.MaxLength = 13;
             this.txtBookISBN.Name = "txtBookISBN";
             this.txtBookISBN.Size = new System.Drawing.Size(178, 20);
-            this.txtBookISBN.TabIndex = 1;
+            this.txtBookISBN.TabIndex = 21;
             // 
             // txtBookName
             // 
             this.txtBookName.Location = new System.Drawing.Point(66, 60);
             this.txtBookName.Name = "txtBookName";
             this.txtBookName.Size = new System.Drawing.Size(178, 20);
-            this.txtBookName.TabIndex = 0;
+            this.txtBookName.TabIndex = 20;
             // 
             // grdBook
             // 
@@ -411,15 +420,6 @@
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Book List";
-            // 
-            // cmbBooks
-            // 
-            this.cmbBooks.FormattingEnabled = true;
-            this.cmbBooks.Location = new System.Drawing.Point(9, 21);
-            this.cmbBooks.Name = "cmbBooks";
-            this.cmbBooks.Size = new System.Drawing.Size(747, 21);
-            this.cmbBooks.TabIndex = 9;
-            this.cmbBooks.SelectedIndexChanged += new System.EventHandler(this.cmbBooks_SelectedIndexChanged);
             // 
             // MainForm
             // 

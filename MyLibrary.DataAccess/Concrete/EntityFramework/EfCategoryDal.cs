@@ -1,4 +1,5 @@
-﻿using MyLibrary.DataAccess.Abstract;
+﻿using MyLibrary.Core.DataAccess.EntityFramework;
+using MyLibrary.DataAccess.Abstract;
 using MyLibrary.Entities.Concrete;
 
 namespace MyLibrary.DataAccess.Concrete.EntityFramework
