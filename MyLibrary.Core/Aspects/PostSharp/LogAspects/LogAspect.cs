@@ -12,8 +12,9 @@ namespace MyLibrary.Core.Aspects.PostSharp.LogAspects
     [MulticastAttributeUsage(MulticastTargets.Method, TargetMemberAttributes = MulticastAttributes.Instance)]
     public class LogAspect : OnMethodBoundaryAspect
     {
-        private Type _loggerType;
+        [NonSerialized]
         private LoggerService _loggerService;
+        private Type _loggerType;
 
         public LogAspect(Type loggerType)
         {
@@ -60,6 +61,14 @@ namespace MyLibrary.Core.Aspects.PostSharp.LogAspects
             catch
             {
                 // ignored
+            }
+        }
+
+        public override void OnException(MethodExecutionArgs args)
+        {
+            if (_loggerService != null)
+            {
+                _loggerService.Error(args.Exception);
             }
         }
     }

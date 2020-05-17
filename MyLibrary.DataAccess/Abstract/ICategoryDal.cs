@@ -5,6 +5,5 @@ namespace MyLibrary.DataAccess.Abstract
 {
     public interface ICategoryDal : IEntityRepository<Category>
     {
-
     }
 }

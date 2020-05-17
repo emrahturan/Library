@@ -106,7 +106,6 @@
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />
     <Compile Include="DependencyResolvers\Ninject\ValidationModule.cs" />
-    <Compile Include="Utilities\ValidationTool.cs" />
     <Compile Include="ValidationRules\FluentValidation\AuthorValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\BookValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\CategoryValidator.cs" />

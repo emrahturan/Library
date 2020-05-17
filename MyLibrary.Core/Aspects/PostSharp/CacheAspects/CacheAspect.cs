@@ -34,8 +34,8 @@ namespace MyLibrary.Core.Aspects.PostSharp.CacheAspects
         public override void OnInvoke(MethodInterceptionArgs args)
         {
             var methodName = string.Format("{0}.{1}.{2}",
-                args.Method.ReflectedType.Namespace,
-                args.Method.ReflectedType.Name,
+                args.Method.ReflectedType?.Namespace,
+                args.Method.ReflectedType?.Name,
                 args.Method.Name);
 
             var arguments = args.Arguments.ToList();

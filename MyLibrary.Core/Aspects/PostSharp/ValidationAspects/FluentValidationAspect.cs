@@ -19,7 +19,6 @@ namespace MyLibrary.Core.Aspects.PostSharp.ValidationAspects
         public override void OnEntry(MethodExecutionArgs args)
         {
             var validator = (IValidator)Activator.CreateInstance(_validatorType);
-            //ProductValidator : AbstractValidator<Product> buradan Product'ı alıyoruz
             if (_validatorType.BaseType != null)
             {
                 var entityType = _validatorType.BaseType.GetGenericArguments()[0];
